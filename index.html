@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小学英语乐园</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <div class="header">
+    <div class="logo">🌈 英语乐园</div>
+    <div class="nav-buttons">
+      <button class="nav-btn active" data-page="home">首页</button>
+      <button class="nav-btn" data-page="words">学单词</button>
+      <button class="nav-btn" data-page="sentences">学例句</button>
+      <button class="nav-btn" data-page="quiz">做练习</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- 首页 -->
+    <div id="page-home" class="page active">
+      <div class="card welcome-card">
+        <h1>👋 你好呀，小朋友！</h1>
+        <p>今天我们一起来学英语吧～</p>
+
+        <div class="stats-row" id="home-stats"></div>
+
+        <div style="margin-top:28px;">
+          <button class="big-btn btn-blue" onclick="App.showPage('words');App.renderWordUnits();">📖 开始学单词</button>
+          <button class="big-btn btn-green" onclick="App.showPage('sentences');App.renderSentences();">💬 看例句</button>
+          <button class="big-btn btn-orange" onclick="App.showPage('quiz');App.renderQuizHome();">🎯 做练习</button>
+        </div>
+
+        <div style="margin-top:16px;text-align:right;">
+          <span style="font-size:13px;color:#aaa;cursor:pointer;text-decoration:underline;" onclick="App.resetProgress()">🔄 重置学习进度</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 单词学习 - 单元列表 -->
+    <div id="page-words" class="page">
+      <div id="page-word-list">
+        <h2 style="color:white;margin-bottom:16px;">📚 选择单元学单词</h2>
+        <div class="unit-list" id="word-units"></div>
+      </div>
+
+      <!-- 单词学习 - 学习卡片 -->
+      <div id="page-word-learn" class="hidden">
+        <div class="back-link" onclick="App.goBackFromLearn()">← 返回</div>
+        <div style="color:white;margin-bottom:8px;">
+          <span id="word-progress-text"></span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="word-progress-fill"></div>
+        </div>
+        <div class="card word-card" id="word-card-inner"></div>
+        <div class="learn-controls">
+          <button class="control-btn btn-known" onclick="App.markWord(true)">✅ 认识</button>
+          <button class="control-btn btn-unknown" onclick="App.markWord(false)">❌ 不认识</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 例句学习 -->
+    <div id="page-sentences" class="page">
+      <h2 style="color:white;margin-bottom:16px;">💬 课本例句</h2>
+      <div id="sentence-list"></div>
+    </div>
+
+    <!-- 练习页 -->
+    <div id="page-quiz" class="page">
+
+      <!-- 练习选择 -->
+      <div id="page-quiz-home">
+        <h2 style="color:white;margin-bottom:16px;">🎯 选择练习方式</h2>
+        <div class="card">
+          <button class="big-btn btn-blue" onclick="App.startQuiz('choice')">🖼️ 看图选单词</button>
+          <button class="big-btn btn-green" onclick="App.startQuiz('listen')">🔊 听音选意思</button>
+          <button class="big-btn btn-orange" onclick="App.startQuiz('spell')">✏️ 拼写单词</button>
+        </div>
+      </div>
+
+      <!-- 练习进行中 -->
+      <div id="page-quiz-play" class="hidden">
+        <div style="color:white;margin-bottom:8px;" id="quiz-progress-text"></div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="quiz-progress-fill"></div>
+        </div>
+        <div class="card quiz-question" id="quiz-area"></div>
+      </div>
+
+      <!-- 练习结果 -->
+      <div id="page-quiz-result" class="hidden">
+        <div class="card result-card" id="result-area"></div>
+        <button class="big-btn btn-blue" onclick="App.renderQuizHome()">返回练习选择</button>
+        <button class="big-btn btn-green" onclick="App.startQuiz(App.state.quizMode)">再来一次</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- JS 文件 -->
+  <script src="js/data.js"></script>
+  <script src="js/speech.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

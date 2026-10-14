@@ -1,0 +1,395 @@
+/* 小学英语学习系统 - 儿童友好样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Microsoft YaHei", "Comic Sans MS", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* 顶部导航 */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  background: #f0f0f0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn.active {
+  background: #667eea;
+  color: white;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* 主内容区 */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* 卡片通用样式 */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 首页欢迎区 */
+.welcome-card {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.welcome-card h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.welcome-card p {
+  color: #888;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+/* 进度统计 */
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 32px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* 大按钮 */
+.big-btn {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: white;
+}
+
+.big-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-blue { background: linear-gradient(135deg, #667eea, #5a67d8); }
+.btn-green { background: linear-gradient(135deg, #48bb78, #38a169); }
+.btn-orange { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+.btn-pink { background: linear-gradient(135deg, #ed64a6, #d53f8c); }
+
+/* 单元选择列表 */
+.unit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.unit-item {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+
+.unit-item:hover {
+  border-color: #667eea;
+  background: #ebf4ff;
+}
+
+.unit-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.unit-progress {
+  font-size: 13px;
+  color: #888;
+}
+
+/* 单词卡片 */
+.word-card {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.word-emoji {
+  font-size: 72px;
+  margin-bottom: 16px;
+}
+
+.word-en {
+  font-size: 42px;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.word-phonetic {
+  font-size: 18px;
+  color: #718096;
+  margin-bottom: 12px;
+}
+
+.word-zh {
+  font-size: 24px;
+  color: #667eea;
+  margin-bottom: 24px;
+}
+
+.speak-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 8px;
+  transition: all 0.2s;
+}
+
+.speak-btn:hover {
+  transform: scale(1.1);
+  background: #5a67d8;
+}
+
+/* 学习控制按钮 */
+.learn-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.control-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-known { background: #c6f6d5; color: #22543d; }
+.btn-unknown { background: #fed7d7; color: #742a2a; }
+.btn-back { background: #e2e8f0; color: #4a5568; }
+
+/* 例句卡片 */
+.sentence-card {
+  padding: 24px;
+  margin-bottom: 12px;
+  border-left: 5px solid #667eea;
+}
+
+.sentence-en {
+  font-size: 22px;
+  color: #2d3748;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.sentence-zh {
+  font-size: 16px;
+  color: #718096;
+}
+
+/* 练习页 */
+.quiz-question {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.quiz-emoji {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.quiz-prompt {
+  font-size: 18px;
+  color: #718096;
+  margin-bottom: 20px;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.quiz-option {
+  padding: 16px;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quiz-option:hover {
+  border-color: #667eea;
+  background: #ebf4ff;
+}
+
+.quiz-option.correct {
+  background: #c6f6d5;
+  border-color: #48bb78;
+}
+
+.quiz-option.wrong {
+  background: #fed7d7;
+  border-color: #f56565;
+}
+
+.quiz-option:disabled {
+  cursor: default;
+}
+
+/* 拼写输入 */
+.spell-input {
+  width: 100%;
+  padding: 16px;
+  font-size: 24px;
+  text-align: center;
+  border: 3px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  margin: 16px 0;
+  font-family: "Comic Sans MS", cursive;
+}
+
+.spell-input:focus {
+  border-color: #667eea;
+}
+
+/* 进度条 */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 6px;
+  transition: width 0.3s;
+}
+
+/* 结果页 */
+.result-card {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.result-emoji {
+  font-size: 80px;
+  margin-bottom: 16px;
+}
+
+.result-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.result-score {
+  font-size: 48px;
+  color: #667eea;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* 返回按钮 */
+.back-link {
+  display: inline-block;
+  color: #667eea;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-decoration: underline;
+}
+
+/* 隐藏元素 */
+.hidden {
+  display: none !important;
+}
